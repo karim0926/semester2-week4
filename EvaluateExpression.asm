@@ -3,28 +3,27 @@
 // Output: R2 = z
 // R0 and R1 must not be modified.
 
-@R1
-D=M
-@TEMP
-M=D            // TEMP = y
-
-@R1
-D=M
-D=D+M          // D = 2y
-@TEMP
-D=D+M          // D = 3y
-@THREEY
-M=D
-
 @17
-D=A            // D = 17
+D=A
 @R0
-D=D+M          // D = 17 + x
-@THREEY
-D=D-M          // D = 17 + x - 3y
-
+D=D+M
 @R2
 M=D
+
+@R1
+D=M
+@R2
+M=M-D
+
+@R1
+D=M
+@R2
+M=M-D
+
+@R1
+D=M
+@R2
+M=M-D
 
 (END)
 @END
